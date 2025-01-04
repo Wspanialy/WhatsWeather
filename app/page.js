@@ -22,6 +22,7 @@ const Home = () => {
         {weatherData && (
           <WeatherCard weatherData={weatherData} className="mt-4" />
         )}
+        {!weatherData && <div className="text-red-500">City {city} not found.</div>}
       </main>
     </>
   );

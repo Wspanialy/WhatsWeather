@@ -14,8 +14,7 @@ export const useFetchWeather = (url) => {
         try {
             const response = await fetch(url, headers);
             const result = await response.json();
-            setWeatherData(result)
-            
+            response.status == 404 ? setWeatherData(null) : setWeatherData(result)
         }
         catch (error) {
             console.error("Error while while fetching data.", error)
