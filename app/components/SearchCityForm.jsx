@@ -2,6 +2,8 @@ const CitySearchForm = ({ onSearch }) => {
   let handleSubmit = (e) => {
     e.preventDefault();
     const city = e.target.elements.city.value.trim();
+
+    if (!city) return alert("Please enter a city name");
     if (onSearch) onSearch(city);
   };
   return (
