@@ -17,7 +17,7 @@ export const useFetchWeather = (url) => {
             response.status == 404 ? setWeatherData(null) : setWeatherData(result)
         }
         catch (error) {
-            console.error("Error while while fetching data.", error)
+            console.log("Error while while fetching data.", error)
         }
     }
 

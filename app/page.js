@@ -11,9 +11,8 @@ const Home = () => {
     setCity(newCity);
   };
 
-  const weatherData = useFetchWeather(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&units=metric`
-  );
+  const weatherData = useFetchWeather(`/api/weather?city=${city}`);
+  console.log(weatherData)
 
   return (
     <>
@@ -22,7 +21,7 @@ const Home = () => {
         {weatherData && (
           <WeatherCard weatherData={weatherData} className="mt-4" />
         )}
-        {!weatherData && <div className="text-red-500">City {city} not found.</div>}
+        {!weatherData  && <div className="text-red-500">City {city} not found.</div>}
       </main>
     </>
   );
