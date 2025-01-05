@@ -1,8 +1,6 @@
 export async function GET (request){
 
-    const searchParams = request.nextUrl.searchParams;
-    const city = searchParams.get('city');
-    const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+    const city = request.nextUrl.searchParams.get('city');
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&units=metric`
 
     try{
@@ -15,7 +13,6 @@ export async function GET (request){
     }
     catch(error){
         return new Response(
-            JSON.stringify({message: "City not found"}),
             { status: 404, headers: { 'Content-Type': 'application/json' } }
         );
     }
